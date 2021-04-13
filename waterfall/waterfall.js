@@ -33,6 +33,8 @@
 
       this.column = options.column || 1
 
+      this.padding = options.padding || 10
+
       this.scrollBottom = options.scrollBottom || function () { }
     
       this.setPosition()
@@ -57,9 +59,10 @@
       this.boxEl.style.cssText = 'position: relative; margin: 0 auto;'
       // 遍历设置子元素
       for (let i = 0; i < this.itemEl.length; i++) {
-        this.itemEl[i].style.cssText = 'position: absolute; width: ' + this.itemWidth + 'px; top: 0; left: 0; transition: all 1s;ease-in'
+        this.itemEl[i].style.cssText = 'position: absolute; width: ' + this.itemWidth + 'px; top: 0; left: 0; transition: all 1s ease-in;box-sizing: border-box; '
         // 获取高度
         let itemHeight = this.itemEl[i].offsetHeight
+        console.log(itemHeight)
         if (i < this.column) {
           // 判断是否是第一排
           this.itemEl[i].style.top = '0px'
